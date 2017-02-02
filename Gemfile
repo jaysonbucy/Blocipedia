@@ -15,6 +15,7 @@ group :development do
   gem 'sqlite3'
   gem 'listen'
   gem 'pry-rails'
+  gem 'devise'
 end
 
 group :development, :test do
