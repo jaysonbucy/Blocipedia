@@ -5,6 +5,7 @@ gem 'rails', '5.0.1'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'figaro', '1.0'
+gem 'devise'
 
 group :production do
   gem 'pg'
@@ -15,7 +16,6 @@ group :development do
   gem 'sqlite3'
   gem 'listen'
   gem 'pry-rails'
-  gem 'devise'
 end
 
 group :development, :test do
