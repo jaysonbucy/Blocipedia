@@ -220,7 +220,7 @@ DEPENDENCIES
   rails-controller-testing
   rails_12factor
   rspec-rails (~> 3.0)
-  sass-rails (~> 5.0)
+  sass-rails
   shoulda
   sqlite3
   turbolinks
