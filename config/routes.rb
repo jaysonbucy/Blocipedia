@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :wikis, except: [:index]
+  resources :wikis
 
-  root 'welcome#index'
+  root 'wikis#index'
+
+  # namespace :user do
+  #   root 'wikis#index'
+  # end
 end
