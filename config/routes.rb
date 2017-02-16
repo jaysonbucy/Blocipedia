@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'welcome/index'
 
-  root 'welcome#index'
+  resources :wikis
+
+  root 'wikis#index'
+
+  # namespace :user do
+  #   root 'wikis#index'
+  # end
 end
