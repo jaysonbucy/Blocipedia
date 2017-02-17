@@ -2,19 +2,36 @@ class WikisController < ApplicationController
   before_action :authenticate_user!
 
   def index
+<<<<<<< HEAD
     @wikis = Wiki.all
     @user = current_user
   end
 
   def new
+=======
+    @user = current_user
+    @wikis = Wiki.all
+  end
+
+  def new
+    @user = current_user
+>>>>>>> 2c48bf10e65329416f95713333d4894f550d91b9
     @wiki = Wiki.new
   end
 
   def show
+<<<<<<< HEAD
+=======
+    @user = current_user
+>>>>>>> 2c48bf10e65329416f95713333d4894f550d91b9
     @wiki = Wiki.find(params[:id])
   end
 
   def edit
+<<<<<<< HEAD
+=======
+    @user = current_user
+>>>>>>> 2c48bf10e65329416f95713333d4894f550d91b9
     @wiki = Wiki.find(params[:id])
   end
 
