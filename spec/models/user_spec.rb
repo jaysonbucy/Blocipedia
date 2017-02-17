@@ -13,5 +13,25 @@ RSpec.describe User, type: :model do
     it "should have email attribute" do
       expect(user).to have_attributes(email: user.email)
     end
+
+    it "responds to role" do
+      expect(user).to respond_to(:role)
+    end
+
+    it "responds to admin?" do
+      expect(user).to respond_to(:admin?)
+    end
+
+    it "responds to standard?" do
+      expect(user).to respond_to(:standard?)
+    end
+
+    it "responds to premium?" do
+      expect(user).to respond_to(:premium?)
+    end
+
+    it "sets the default role to standard" do
+      expect(user.role).to eq("standard")
+    end
   end
 end

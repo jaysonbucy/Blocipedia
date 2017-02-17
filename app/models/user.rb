@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  before_save { self.role ||= :standard }
+
   validates :email,
             presence: true,
             uniqueness: { case_sensitive: false },
@@ -14,6 +16,7 @@ class User < ApplicationRecord
 
   after_create :send_application_email
 
+  enum role: [:standard, :premium, :admin]
   private
   def send_application_email
     ApplicationMailer.new_user(self).deliver_now
