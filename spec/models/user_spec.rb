@@ -30,6 +30,10 @@ RSpec.describe User, type: :model do
       expect(user).to respond_to(:premium?)
     end
 
+    it "does not respond to fake role" do
+      expect(user.role).not_to respond_to(:administrator)
+    end
+
     it "sets the default role to standard" do
       expect(user.role).to eq("standard")
     end
