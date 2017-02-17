@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-include SessionsHelper
-
 RSpec.describe WikisController, type: :controller do
   let :my_user { create(:user) }
   let :my_wiki { create(:wiki, user: my_user) }
@@ -10,7 +8,6 @@ RSpec.describe WikisController, type: :controller do
   context "signed-in user" do
     before do
       sign_in(my_user)
-      create_session(my_user)
     end
 
     describe "GET new" do
