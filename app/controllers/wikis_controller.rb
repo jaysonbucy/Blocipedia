@@ -2,42 +2,29 @@ class WikisController < ApplicationController
   before_action :authenticate_user!
 
   def index
-<<<<<<< HEAD
-    @wikis = Wiki.all
-    @user = current_user
-  end
-
-  def new
-=======
-    @user = current_user
     @wikis = Wiki.all
   end
 
   def new
-    @user = current_user
->>>>>>> 2c48bf10e65329416f95713333d4894f550d91b9
+    @wikis = Wiki.all
+  end
+
+  def new
     @wiki = Wiki.new
   end
 
   def show
-<<<<<<< HEAD
-=======
-    @user = current_user
->>>>>>> 2c48bf10e65329416f95713333d4894f550d91b9
     @wiki = Wiki.find(params[:id])
   end
 
   def edit
-<<<<<<< HEAD
-=======
-    @user = current_user
->>>>>>> 2c48bf10e65329416f95713333d4894f550d91b9
     @wiki = Wiki.find(params[:id])
   end
 
   def create
     @wiki = Wiki.new(wiki_params)
     @wiki.user = current_user
+    # @wiki = current_user.wikis.new(wiki_params)
 
     if @wiki.save
       flash[:notice] = "Wiki was saved."
@@ -50,9 +37,9 @@ class WikisController < ApplicationController
 
   def update
     @wiki = Wiki.find(params[:id])
-    @wiki.assign_attributes(wiki_params)
+    # @wiki.assign_attributes(wiki_params)
 
-    if @wiki.save
+    if @wiki.update(wiki_params)
       flash[:notice] = "Wiki was updated."
       redirect_to [@wiki]
     else
