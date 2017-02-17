@@ -9,6 +9,8 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false },
             length: { minimum: 3, maximum: 254 }
 
+  has_many :wikis
+
 
   after_create :send_application_email
 
