@@ -4,7 +4,7 @@
   <br>
   <small>Last updated at <%= time_ago_in_words(@wiki.updated_at) %></small>
 </div>
-<% if policy(@user.edit?) %>
+<% if policy(@wiki.user).edit? %>
   <%= link_to 'Edit Wiki', edit_wiki_path, :class => 'navbar-link' %>
 <% end %>
 <p><%= new_line_to_html(@wiki.body).html_safe %></p>
