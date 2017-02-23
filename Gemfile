@@ -28,6 +28,7 @@ group :development, :test do
   gem 'pry'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
+  gem 'stripe-ruby-mock', '~> 2.4.0', :require => 'stripe_mock'
 end
 
 # Use SCSS for stylesheets

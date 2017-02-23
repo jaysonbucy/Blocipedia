@@ -23,6 +23,17 @@ admin = User.create!(
   role:     'admin'
 )
 
+standard = User.create!(
+  email:    'standard@examle.com',
+  password: 'testing'
+)
+
+premium = User.create!(
+  email:    'premium@example.com',
+  password: 'testing',
+  role:     'premium'
+)
+
 puts "Seed finshed"
 puts "#{User.count} users created"
 puts "#{Wiki.count} topics created"
