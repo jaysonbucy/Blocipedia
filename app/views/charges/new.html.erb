@@ -1,0 +1,14 @@
+<%= form_tag charges_path do %>
+  <h4>Premium Account</h4>
+  <p> A premium acccount will allow you to create <em>private</em> wikis that only you can see or update!</p>
+  <script class='stripe-button'
+          src="https://checkout.stripe.com/checkout.js"
+          data-key="<%= @stripe_btn_data[:key] %>"
+          data-amount="<%= @stripe_btn_data[:amount] %>"
+          data-description="<%= @stripe_btn_data[:description] %>" >
+  </script>
+<% end %>
+<br>
+<small>
+  <%= link_to "Cancel premium upgrade", root_path, class: 'btn btn-success' %>
+</small>

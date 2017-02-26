@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :wiki do
-    title "My String"
-    body "This is some stupid text to meet length requirements."
+    title Faker::StarWars.quote
+    body Faker::Lorem.paragraphs.join(". ")
     private false
     user
   end

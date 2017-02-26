@@ -13,7 +13,7 @@ users = User.all
   Wiki.create!(
     user: users.sample,
     title: Faker::StarWars.quote,
-    body: Faker::Lorem.paragraphs
+    body: Faker::Lorem.paragraphs.join(". ")
   )
 end
 
@@ -21,6 +21,17 @@ admin = User.create!(
   email:    'jayson@example.com',
   password: 'password',
   role:     'admin'
+)
+
+standard = User.create!(
+  email:    'standard@examle.com',
+  password: 'testing'
+)
+
+premium = User.create!(
+  email:    'premium@example.com',
+  password: 'testing',
+  role:     'premium'
 )
 
 puts "Seed finshed"
