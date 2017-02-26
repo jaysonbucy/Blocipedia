@@ -5,6 +5,15 @@ RSpec.describe WikisController, type: :controller do
   let :my_wiki { create(:wiki, user: my_user) }
   let :create_wiki { build(:wiki, user: my_user) }
 
+  # context "guest user" do
+  #   describe "GET show" do
+  #     it "returns http success" do
+  #       get :show, params: { id: my_wiki.id }
+  #       expect(response).to have_http_status(:success)
+  #     end
+  #   end
+  # end
+
   context "signed-in user" do
     before do
       sign_in(my_user)
