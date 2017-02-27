@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe WikiPolicy do
 
   subject { WikiPolicy.new(user, wiki) }
-  let :this_wiki { create(:wiki) }
+  let (:this_wiki) { create(:wiki) }
 
   # context "for a guest" do
   #   let :user { nil }

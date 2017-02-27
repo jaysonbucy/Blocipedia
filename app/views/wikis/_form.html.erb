@@ -21,6 +21,13 @@
     <%= w.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
   <% end %>
 
+  <% if wiki.user.premium? %>
+    <%= form_group_tag(wiki.errors[:private]) do %>
+      <%= w.label :private %>
+      <%= w.check_box :private, class: 'form-control' %>
+    <% end %>
+  <% end %>
+
   <div class="form-group">
     <%= w.submit "Save", class: 'btn btn-success' %>
   </div>

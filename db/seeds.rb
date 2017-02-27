@@ -18,18 +18,18 @@ users = User.all
 end
 
 admin = User.create!(
-  email:    'jayson@example.com',
+  email:    'jayson@test.com',
   password: 'password',
   role:     'admin'
 )
 
 standard = User.create!(
-  email:    'standard@examle.com',
+  email:    'standard@test.com',
   password: 'testing'
 )
 
 premium = User.create!(
-  email:    'premium@example.com',
+  email:    'premium@test.com',
   password: 'testing',
   role:     'premium'
 )
