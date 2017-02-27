@@ -1,11 +1,3 @@
-<% if current_user.admin? || current_user.premium? %>
-  <div class="form-group">
-    <%= f.label :private, class: 'checkbox' do %>
-      <%= f.check_box :private %> Private wiki
-    <% end %>
-  </div>
-<% end %>
-
 <%= form_for [wiki] do |w| %>
 
   <% if wiki.errors.any? %>
@@ -27,6 +19,13 @@
   <%= form_group_tag(wiki.errors[:body]) do %>
     <%= w.label :body %>
     <%= w.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
+  <% end %>
+
+  <% if wiki.user.premium? %>
+    <%= form_group_tag(wiki.errors[:private]) do %>
+      <%= w.label :private %>
+      <%= w.check_box :private, class: 'form-control' %>
+    <% end %>
   <% end %>
 
   <div class="form-group">

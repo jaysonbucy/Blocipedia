@@ -1,10 +1,12 @@
 <div class="media">
   <div class="media-body">
-    <h4 class="media-heading">
-      <%= link_to wiki.title, wiki %>
-    </h4>
-    <small>
-      <%= wiki.body[0..100] %>
-    </small>
+    <% if user_is_authorized_for_wiki(wiki) %>
+      <h4 class="media-heading">
+        <%= link_to wiki.title, wiki %>
+      </h4>
+      <small>
+        <%= wiki.body[0..100] %>
+      </small>
+    <% end %>
   </div>
 </div>
