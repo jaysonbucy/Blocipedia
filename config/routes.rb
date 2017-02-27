@@ -7,7 +7,4 @@ Rails.application.routes.draw do
   root 'wikis#index'
 
   delete '/users/:id/downgrade', to: 'users#downgrade', as: :user_downgrade
-  # namespace :user do
-  #   root 'wikis#index'
-  # end
 end
