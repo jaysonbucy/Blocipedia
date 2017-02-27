@@ -21,7 +21,7 @@
     <%= w.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
   <% end %>
 
-  <% if wiki.user.premium? %>
+  <% if wiki.user.premium? || current_user.admin? %>
     <%= form_group_tag(wiki.errors[:private]) do %>
       <%= w.label :private %>
       <%= w.check_box :private, class: 'form-control' %>
