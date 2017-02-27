@@ -5,7 +5,7 @@
         <%= link_to wiki.title, wiki %>
       </h4>
       <small>
-        <%= wiki.body[0..100] %>
+        <%= markdown(wiki.body[0..100]) %>
       </small>
     <% end %>
   </div>
