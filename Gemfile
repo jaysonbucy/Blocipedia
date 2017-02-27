@@ -9,6 +9,7 @@ gem 'figaro', '1.0'
 gem 'devise'
 gem 'pundit'
 gem 'stripe'
+gem 'redcarpet'
 
 group :production do
   gem 'pg'

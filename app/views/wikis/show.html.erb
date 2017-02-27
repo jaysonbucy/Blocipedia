@@ -7,6 +7,8 @@
 <% if policy(@wiki).edit? %>
   <%= link_to 'Edit Wiki', edit_wiki_path, :class => 'navbar-link' %>
 <% end %>
-<p><%= new_line_to_html(@wiki.body).html_safe %></p>
+<p>
+  <%= markdown(@wiki.body) %>
+</p>
 <br>
 <%= link_to 'Return to Index', root_path, :class => 'navbar-link' %>
