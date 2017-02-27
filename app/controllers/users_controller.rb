@@ -9,8 +9,9 @@ class UsersController < ApplicationController
   def set_users_wikis_to_public(user)
     wikis = Wiki.all
     wikis.each do |w|
-      if w.user_id == user.id
+      if w.user_id === user.id
         w.private = false
+        w.save!
       end
     end
   end
