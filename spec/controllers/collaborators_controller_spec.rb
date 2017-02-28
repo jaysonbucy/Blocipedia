@@ -7,7 +7,6 @@ RSpec.describe CollaboratorsController, type: :controller do
 
   describe "POST create" do
     it "increment collaborator by 1" do
-      binding.pry
       expect( -> { post :create, params: { collaborator: collaborator }}).to change(Collaborator, :count).by(1)
     end
   end
