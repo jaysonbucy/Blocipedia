@@ -16,11 +16,12 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @users = User.all
   end
 
   def create
    @wiki = current_user.wikis.new(wiki_params)
-   
+
     if @wiki.save
       flash[:notice] = "Wiki was saved."
       redirect_to [@wiki]
