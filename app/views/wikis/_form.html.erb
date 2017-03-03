@@ -29,7 +29,16 @@
   <% end %>
 
   <% if @wiki.private %>
-    <%= render partial: 'collaborators/form' %>
+    <div class="form-group">
+      <h3>Collaborators</h3>
+      <% @users.each do |user| %>
+      <%= form_group_tag(wiki.errors[:collaborator]) do %>
+        <%= w.label :collaborator %>
+        <%= w.check_box user.email, class: 'form-control' %>
+        <% end %>
+        <br>
+      <% end %>
+    </div>
   <% end %>
 
   <div class="form-group">
