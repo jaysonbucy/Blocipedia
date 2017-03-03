@@ -11,14 +11,15 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false },
             length: { minimum: 3, maximum: 254 }
 
-  has_many :collaborators
-  has_many :wikis, through: :collaborators
+  has_many :wiki_collaborators
+  has_many :collaborated_wikis, through: :wiki_collaborators
+  has_many :wikis
 
 
   after_create :send_application_email
 
   enum role: [:standard, :premium, :admin]
-  
+
   private
   def send_application_email
     ApplicationMailer.new_user(self).deliver_now

@@ -3,10 +3,7 @@ class WikisController < ApplicationController
 
   def index
     @wikis = policy_scope(Wiki)
-  end
-
-  def new
-    @wikis = Wiki.all
+    #@wikis = Wiki.all
   end
 
   def new
@@ -23,7 +20,7 @@ class WikisController < ApplicationController
 
   def create
    @wiki = current_user.wikis.new(wiki_params)
-
+   
     if @wiki.save
       flash[:notice] = "Wiki was saved."
       redirect_to [@wiki]
