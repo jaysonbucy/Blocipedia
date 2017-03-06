@@ -2,11 +2,7 @@ class WikisController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @wikis = Wiki.all
-  end
-
-  def new
-    @wikis = Wiki.all
+    @wikis = policy_scope(Wiki)
   end
 
   def new
@@ -19,6 +15,7 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @users = User.all
   end
 
   def create
@@ -35,7 +32,10 @@ class WikisController < ApplicationController
 
   def update
     @wiki = Wiki.find(params[:id])
-
+    @wiki.collaborators.destroy_all
+    params[:collaborators].each do |user_id|
+      WikiCollaborator.create(wiki_id: @wiki.id, user_id: user_id)
+    end
     if @wiki.update(wiki_params)
       flash[:notice] = "Wiki was updated."
       redirect_to [@wiki]

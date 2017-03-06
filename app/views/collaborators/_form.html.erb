@@ -1,0 +1,13 @@
+<div class="form-group">
+  <h3>Collaborators</h3>
+  <% @users.each do |user| %>
+  <% if user.id != current_user.id %>
+    <%= form_group_tag(wiki.errors[:collaborator]) do %>
+      <% checked = WikiCollaborator.exists?(wiki_id: @wiki.id, user_id: user.id) %>
+      <%= check_box_tag 'collaborators[]', user.id, checked %>
+      <%= w.label :email, user.email %>
+      <% end %>
+      <br>
+    <% end %>
+  <% end %>
+</div>

@@ -5,7 +5,7 @@ module WikisHelper
 
   def user_is_authorized_for_wiki(wiki)
     if wiki.private?
-      current_user && (current_user.id == wiki.user_id || current_user.admin?)
+      current_user && (current_user.id == wiki.user_id || wiki.collaborators.ids.include?(current_user.id) || current_user.admin?)
     else
       current_user
     end
