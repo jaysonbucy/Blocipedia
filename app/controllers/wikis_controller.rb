@@ -3,7 +3,6 @@ class WikisController < ApplicationController
 
   def index
     @wikis = policy_scope(Wiki)
-    #@wikis = Wiki.all
   end
 
   def new
