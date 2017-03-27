@@ -1,4 +1,4 @@
-class WikisController < ApplicationController
+class WikisController < ApplicationController 
   before_action :authenticate_user!
 
   def index
